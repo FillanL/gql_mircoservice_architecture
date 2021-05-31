@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api_gateway:
+    depends_on: 
+      - user_service
+    build:
+      context: './api_gateway'
+      dockerfile: './Dockerfile'
+    ports:
+      - 8000:5000
+  user_service:
+    build:
+      context: './user_service'
+      dockerfile: './Dockerfile'
+    ports:
+      - 8081:4000
